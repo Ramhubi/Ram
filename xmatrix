@@ -317,3 +317,74 @@
     "additionalProperties": true
   }
 }
+{
+  "type": "array",
+  "items": {
+    "title": "Copilot Usage Metrics",
+    "description": "Copilot usage metrics for a given day.",
+    "type": "object",
+    "properties": {
+      "date": "2024-12-28",
+      "type": "string",
+      "format": "date",
+      "description": "The date for which the usage metrics are aggregated.",
+      "total_active_users": {
+        "type": "integer",
+        "description": "The total number of Copilot users with activity belonging"
+      },
+      "total_engaged_users": {
+        "type": "integer",
+        "description": "The total number of Copilot users who engaged with"
+      },
+      "copilot_ide_code_completions": {
+        "type": [
+          "object",
+          "null"
+        ],
+        "description": "Usage metrics for Copilot editor code completions in the",
+        "additionalProperties": true,
+        "properties": {
+          "total_engaged_users": {
+            "type": "integer",
+            "description": "Number of users who accepted at least one Copilot"
+          },
+          "languages": {
+            "type": "array",
+            "description": "Code completion metrics for active languages.",
+            "items": {
+              "type": "object",
+              "description": "Usage metrics for a given language for the given",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "Name of the language used for Copilot code completion"
+                },
+                "total_engaged_users": {
+                  "type": "integer",
+                  "description": "Number of users who accepted at least one Copilot"
+                }
+              }
+            }
+          }
+        }
+      },
+      "editors": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "description": "Copilot code completion metrics for active editors.",
+          "additionalProperties": true,
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Name of the given editor."
+            },
+            "total_engaged_users": {
+              "type": "integer"
+            }
+          }
+        }
+      }
+    }
+  }
+}
